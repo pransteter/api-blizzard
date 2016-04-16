@@ -1,12 +1,15 @@
 <?php
 
-$permited_urls = array('/' , '/pagina-principal' , '/categoria' , '/teste');
+$permited_urls = array('/');
 
 $routes =
     array(
-        '/' => array('module' => 'default' , 'controller' => 'main' , 'action' => 'main' , 'parameters_limit' => 0),
-        '/pagina-principal' => array('module' => 'default' , 'controller' => 'main' , 'action' => 'main' , 'parameters_limit' => 1),
-        '/categoria' => array('module' => 'default' , 'controller' => 'main' , 'action' => 'main' , 'parameters_limit' => 3)
+        '/' => array(
+            'module' => 'default' ,
+            'controller' => 'main' ,
+            'action' => 'main' ,
+            'parameters_limit' => 0
+        )
     );
 
 define('PERMITED_URLS' , serialize($permited_urls));

@@ -1,51 +1,5 @@
 [
     {
-        "name": "respect/rest",
-        "version": "0.6.0",
-        "version_normalized": "0.6.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/Respect/Rest.git",
-            "reference": "4f60aa199623d738a3391ca1e80bafb754bc9308"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/Respect/Rest/zipball/4f60aa199623d738a3391ca1e80bafb754bc9308",
-            "reference": "4f60aa199623d738a3391ca1e80bafb754bc9308",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.0"
-        },
-        "require-dev": {
-            "phpunit/phpunit": "~4.4.0"
-        },
-        "time": "2015-01-12 09:55:16",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Respect\\": "library/Respect"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "BSD Style"
-        ],
-        "authors": [
-            {
-                "name": "Alexandre Gaigalas",
-                "email": "alexandre@gaigalas.net"
-            },
-            {
-                "name": "Respect/Data Contributors",
-                "homepage": "https://github.com/Respect/Data/graphs/contributors"
-            }
-        ],
-        "description": "Thin controller for RESTful applications",
-        "homepage": "http://respect.li/"
-    },
-    {
         "name": "smarty/smarty",
         "version": "v3.1.29",
         "version_normalized": "3.1.29.0",
@@ -101,6 +55,58 @@
         "keywords": [
             "templating"
         ]
+    },
+    {
+        "name": "respect/relational",
+        "version": "0.8.1",
+        "version_normalized": "0.8.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Respect/Relational.git",
+            "reference": "ba4fb6ddcbd12968fa41b7c8f436fc6dd9c7b774"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Respect/Relational/zipball/ba4fb6ddcbd12968fa41b7c8f436fc6dd9c7b774",
+            "reference": "ba4fb6ddcbd12968fa41b7c8f436fc6dd9c7b774",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4.0",
+            "respect/data": "~0.2.2"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "~4.4.0"
+        },
+        "time": "2015-09-25 07:09:43",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "0.8-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Respect\\": "library/Respect"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD Style"
+        ],
+        "authors": [
+            {
+                "name": "Alexandre Gomes Gaigalas",
+                "email": "alexandre@gaigalas.net"
+            },
+            {
+                "name": "Respect/Data Contributors",
+                "homepage": "https://github.com/Respect/Data/graphs/contributors"
+            }
+        ],
+        "description": "Fluent Database Toolkit",
+        "homepage": "http://respect.li"
     },
     {
         "name": "respect/data",
@@ -161,34 +167,28 @@
         "homepage": "http://respect.li/"
     },
     {
-        "name": "respect/relational",
-        "version": "0.8.1",
-        "version_normalized": "0.8.1.0",
+        "name": "respect/rest",
+        "version": "0.6.0",
+        "version_normalized": "0.6.0.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/Respect/Relational.git",
-            "reference": "ba4fb6ddcbd12968fa41b7c8f436fc6dd9c7b774"
+            "url": "https://github.com/Respect/Rest.git",
+            "reference": "4f60aa199623d738a3391ca1e80bafb754bc9308"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/Respect/Relational/zipball/ba4fb6ddcbd12968fa41b7c8f436fc6dd9c7b774",
-            "reference": "ba4fb6ddcbd12968fa41b7c8f436fc6dd9c7b774",
+            "url": "https://api.github.com/repos/Respect/Rest/zipball/4f60aa199623d738a3391ca1e80bafb754bc9308",
+            "reference": "4f60aa199623d738a3391ca1e80bafb754bc9308",
             "shasum": ""
         },
         "require": {
-            "php": ">=5.4.0",
-            "respect/data": "~0.2.2"
+            "php": ">=5.3.0"
         },
         "require-dev": {
             "phpunit/phpunit": "~4.4.0"
         },
-        "time": "2015-09-25 07:09:43",
+        "time": "2015-01-12 09:55:16",
         "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "0.8-dev"
-            }
-        },
         "installation-source": "dist",
         "autoload": {
             "psr-4": {
@@ -201,7 +201,7 @@
         ],
         "authors": [
             {
-                "name": "Alexandre Gomes Gaigalas",
+                "name": "Alexandre Gaigalas",
                 "email": "alexandre@gaigalas.net"
             },
             {
@@ -209,7 +209,7 @@
                 "homepage": "https://github.com/Respect/Data/graphs/contributors"
             }
         ],
-        "description": "Fluent Database Toolkit",
-        "homepage": "http://respect.li"
+        "description": "Thin controller for RESTful applications",
+        "homepage": "http://respect.li/"
     }
 ]

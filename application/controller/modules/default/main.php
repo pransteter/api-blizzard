@@ -1,14 +1,21 @@
 <?php
 
-require_once CONTROLLER_PATH . 'controller.php';
+namespace Apis\Controller\Modules;
+
+require_once CONTROLLER_PATH . 'Controller.php';
 
 class Main extends \Apis\Controller\Controller
 {
-	
+
     public function mainAction()
     {
         $parametros = $this->getUrlParameters();
-        echo "<pre>"; print_r($parametros); echo "<hr>";exit;
+
+        $model_user = $this->getModel('user' , 'main');
+        $usuario = $model_user->getUser();
+        
+        $pagina = $this->getView('default' , 'main');
+        $pagina->paginaInicial($usuario);
     }
 
 }
