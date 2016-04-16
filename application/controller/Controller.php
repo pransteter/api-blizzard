@@ -1,6 +1,6 @@
 <?php
 
-namespace Apis\Controller;
+namespace Blizzard\Controller;
 
 class Controller
 {
@@ -29,7 +29,7 @@ class Controller
 
         try
         {
-            $factory = new \Apis\Factory\ModelFactory($parameters);
+            $factory = new \Blizzard\Factory\ModelFactory($parameters);
             $model_object = $factory->getObject();
         }
         catch(\Exception $e) { exit($e->getMessage()); }
@@ -51,7 +51,7 @@ class Controller
 
         try
         {
-            $factory = new \Apis\Factory\ViewFactory($parameters);
+            $factory = new \Blizzard\Factory\ViewFactory($parameters);
             $view_object = $factory->getObject();
         }
         catch(\Exception $e) { exit($e->getMessage()); }
@@ -71,7 +71,7 @@ class Controller
 
         require_once HELPER_PATH . 'ControllerFactory.php';
 
-        try { new \Apis\Factory\ControllerFactory(array('destiny' => $destiny , 'url_parameters' => $parameters)); }
+        try { new \Blizzard\Factory\ControllerFactory(array('destiny' => $destiny , 'url_parameters' => $parameters)); }
         catch(\Exception $e) { exit($e->getMessage()); }
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Apis\Factory;
+namespace Blizzard\Factory;
 
 class ControllerFactory
 {
@@ -11,7 +11,7 @@ class ControllerFactory
 
         require_once $archive;
 
-        $class = "\\Apis\\Controller\\Modules\\" . ucfirst($loader_information['destiny']['controller']);
+        $class = "\\Blizzard\\Controller\\Modules\\" . ucfirst($loader_information['destiny']['controller']);
         $action = $loader_information['destiny']['action'] . 'Action';
 
         try

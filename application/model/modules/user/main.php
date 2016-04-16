@@ -1,10 +1,10 @@
 <?php
 
-namespace Apis\Model\Modules;
+namespace Blizzard\Model\Modules;
 
 require_once MODEL_PATH . 'Model.php';
 
-class Main extends \Apis\Model\Model
+class Main extends \Blizzard\Model\Model
 {
 
     public function getUser()

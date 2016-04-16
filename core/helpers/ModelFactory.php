@@ -1,6 +1,6 @@
 <?php
 
-namespace Apis\Factory;
+namespace Blizzard\Factory;
 
 class ModelFactory
 {
@@ -13,7 +13,7 @@ class ModelFactory
 
         require_once $archive;
 
-        $class = "\\Apis\\Model\\Modules\\" . ucfirst($model_information['model']);
+        $class = "\\Blizzard\\Model\\Modules\\" . ucfirst($model_information['model']);
 
         try
         { $model_object = new $class(); }

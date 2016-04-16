@@ -1,8 +1,8 @@
 <?php
 
-namespace Apis\Loader;
+namespace Blizzard\Loader;
 
-use \Apis\Factory\ControllerFactory;
+use \Blizzard\Factory\ControllerFactory;
 
 require_once SERVER_ROOT.'core/Bootstrap.php';
 

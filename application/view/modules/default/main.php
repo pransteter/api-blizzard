@@ -1,10 +1,10 @@
 <?php
 
-namespace Apis\View\Modules;
+namespace Blizzard\View\Modules;
 
 require_once VIEW_PATH . 'View.php';
 
-class Main extends \Apis\View\View
+class Main extends \Blizzard\View\View
 {
 
     public function paginaInicial($usuario = false)

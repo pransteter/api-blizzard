@@ -1,8 +1,8 @@
 <?php
 
-namespace Apis\Bootstrap;
+namespace Blizzard\Bootstrap;
 
-use Apis\Loader\Loader;
+use Blizzard\Loader\Loader;
 
 class Bootstrap
 {

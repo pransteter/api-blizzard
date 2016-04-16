@@ -1,6 +1,6 @@
 <?php
 
-namespace Apis\Factory;
+namespace Blizzard\Factory;
 
 class ViewFactory
 {
@@ -13,7 +13,7 @@ class ViewFactory
 
         require_once $archive;
 
-        $class = "\\Apis\\View\\Modules\\" . ucfirst($view_information['view']);
+        $class = "\\Blizzard\\View\\Modules\\" . ucfirst($view_information['view']);
 
         try
         { $view_object = new $class(); }

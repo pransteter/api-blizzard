@@ -1,10 +1,10 @@
 <?php
 
-namespace Apis\Controller\Modules;
+namespace Blizzard\Controller\Modules;
 
 require_once CONTROLLER_PATH . 'Controller.php';
 
-class Main extends \Apis\Controller\Controller
+class Main extends \Blizzard\Controller\Controller
 {
 
     public function mainAction()

@@ -1,6 +1,6 @@
 <?php
 
-namespace Apis\View;
+namespace Blizzard\View;
 
 require_once SERVER_ROOT.'database_config.php';
 require_once CORE_PATH.'vendor/autoload.php';
