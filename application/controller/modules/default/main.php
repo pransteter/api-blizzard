@@ -9,13 +9,13 @@ class Main extends \Blizzard\Controller\Controller
 
     public function mainAction()
     {
-        $parametros = $this->getUrlParameters();
+        //$parametros = $this->getUrlParameters();
 
-        $model_user = $this->getModel('user' , 'main');
-        $usuario = $model_user->getUser();
+        $model_user = $this->getModel('wow' , 'bossapi');
+        $bosses = $model_user->getAll();
         
-        $pagina = $this->getView('default' , 'main');
-        $pagina->paginaInicial($usuario);
+        //$pagina = $this->getView('default' , 'main');
+        //$pagina->paginaInicial($usuario);
     }
 
 }

@@ -14,4 +14,4 @@ define('CONTROLLER_PATH',SERVER_ROOT."application/controller/");
 define('CSS_PATH',URL_ROOT."assets/css/");
 define('JS_PATH',URL_ROOT."assets/js/");
 define('IMG_PATH',URL_ROOT."assets/img/");
-define('BLIZZARD_PATH',URL_ROOT."core/helpers/blizzard/");
+define('BLIZZARD_PATH',SERVER_ROOT."lib/blizzard/");

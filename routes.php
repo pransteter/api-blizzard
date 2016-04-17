@@ -8,7 +8,7 @@ $routes =
             'module' => 'default' ,
             'controller' => 'main' ,
             'action' => 'main' ,
-            'parameters_limit' => 0
+            'parameters_limit' => 1
         )
     );
 

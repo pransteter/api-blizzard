@@ -19,7 +19,7 @@ class ControllerFactory
             $controller_object = new $class($loader_information['url_parameters']);
             $controller_object->$action();
         }
-        catch (\Exception $e) { throw new \Exception('Não foi possível instanciar o controller informado. Verifique o nome da classe do controller.'); }
+        catch (\Exception $e) { exit($e->getMessage()); throw new \Exception('Não foi possível instanciar o controller informado. Verifique o nome da classe do controller.'); }
     }
 
     private function destinyValidation($destiny = null)
