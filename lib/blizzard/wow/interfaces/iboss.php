@@ -1,6 +1,6 @@
 <?php
 
-namespace Blizzard\Api;
+namespace Blizzard\Api\Wow\Kind;
 
 interface iBoss
 {

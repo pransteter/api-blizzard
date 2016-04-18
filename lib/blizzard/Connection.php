@@ -9,40 +9,36 @@ use GuzzleHttp\Exception\RequestException;
 
 abstract class Connection
 {
-    protected $particular_uri = '';
+    private static $request_start = 'https://us.api.battle.net/';
+    protected $game_uri = '';
+    private $kind_uri = '';
 
-    protected static $base_parameters = 
+    private static $base_parameters =
         [
-            'apikey' => 'utkjwu9vx72u4nxavjpj5eq2sarbgt75',
+            'apikey' => '',
             'locale' => 'en_US'
         ];
-    protected static $request_start = 'https://us.api.battle.net/';
-    protected static $connection = false;
-    protected static $response_object = false;
+    private static $connection = false;
+    private static $response_object = false;
 
     function __construct()
-    { self::$connection = new Client(['base_uri' => self::$request_start . $this->particular_uri , 'timeout'  => 99.0]); }
+    { self::$connection = new Client(['base_uri' => self::$request_start . $this->game_uri , 'timeout'  => 99.0]); }
+
+    public function setKindUri($kind_uri = ''){ $this->kind_uri = $kind_uri; }
 
     public function sendRequest($new_parameters = array())
     {
-        $uri = self::$request_start . $this->particular_uri;
         $parameters = array_merge((is_array($new_parameters)) ? $new_parameters : array() , self::$base_parameters);
-        echo "<pre>"; print_r(['query' => $parameters]); echo "<hr>";
-        echo "<pre>"; print_r($uri); echo "<hr>";
-        //echo "<pre>"; print_r(self::$connection); echo "<hr>"; 
-        $retorno = self::$connection->request('GET' , $uri , ['query' => $parameters]);
-        echo "<pre>"; print_r($retorno); echo "<hr>";exit;
-        try
-        {
-            
-
-        }catch (RequestException $e) {
-            print_r($e->getRequest());
-            echo "<hr>";
-            print_r($e->getResponse());
-        }
-
-            
-        /*echo "<pre>"; print_r($retorno);*/ exit;
+        
+        self::$response_object = self::$connection->request('GET' , $this->kind_uri , ['query' => $parameters]);
     }
+
+    public function getResponse()
+    {
+        if(!is_object(self::$response_object) || !(self::$response_object instanceof \GuzzleHttp\Psr7\Response))
+        { return 'Não foi possível receber um retorno da API da Blizzard!'; }
+        
+        return json_decode(self::$response_object->getBody());
+    }
+
 }

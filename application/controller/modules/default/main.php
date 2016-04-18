@@ -13,6 +13,9 @@ class Main extends \Blizzard\Controller\Controller
 
         $model_user = $this->getModel('wow' , 'bossapi');
         $bosses = $model_user->getAll();
+
+        echo '<pre>';
+        print_r($bosses);exit;
         
         //$pagina = $this->getView('default' , 'main');
         //$pagina->paginaInicial($usuario);
