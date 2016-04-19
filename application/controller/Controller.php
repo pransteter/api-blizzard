@@ -9,14 +9,14 @@ class Controller
     function __construct($parameters = false) { $this->parameters = $parameters; }
 
     /**
-     * Função para pegar todos os parametros passados pela url.
-     * Obs.: Não se esqueça de configurar o número limite para parâmetros em url no arquivo "/routes.php"
+     * FunÃ§Ã£o para pegar todos os parametros passados pela url.
+     * Obs.: NÃ£o se esqueÃ§a de configurar o nÃºmero limite para parÃ¢metros em url no arquivo "/routes.php"
      * @return array
      */
     protected function getUrlParameters() { return $this->parameters; }
 
     /**
-     * Função para criar o objeto da camada Model.
+     * FunÃ§Ã£o para criar o objeto da camada Model.
      * @param null $module_name
      * @param null $model_name
      * @return Model Object
@@ -38,7 +38,7 @@ class Controller
     }
 
     /**
-     * Função para criar o objeto da camada View.
+     * FunÃ§Ã£o para criar o objeto da camada View.
      * @param null $module_name
      * @param null $view_name
      * @return View Object
@@ -60,7 +60,7 @@ class Controller
     }
 
     /**
-     * Função para mudar de controller, redirecionar.
+     * FunÃ§Ã£o para mudar de controller, redirecionar.
      * @param null $module_name
      * @param null $controller_name
      * @param null $action_name

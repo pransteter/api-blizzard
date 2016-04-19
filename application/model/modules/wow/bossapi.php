@@ -18,4 +18,10 @@ class Bossapi extends \Blizzard\Model\Model
         return $obj_boss->getAll();
     }
 
+    public function getBoss($boss_id)
+    {
+        $obj_boss = new Boss(new WowConnection());
+        return $obj_boss->getBoss(array('id' => $boss_id));
+    }
+
 }

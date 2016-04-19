@@ -11,8 +11,14 @@ class Boss extends \Blizzard\Api\Wow implements iBoss
 {
     protected static $request = 'boss/';
 
-    // Fazer validação de parametros, neste caso, apenas verificar se é integer o id do boss.
-    protected function parametersValidation(Array $parameters){ echo "teste"; }
+    protected function parametersValidation(Array $parameters)
+    {
+        if(!isset($parameters['id']) || empty($parameters['id']))
+        { throw new \Exception('No boss id as parameters. Please, verify if you sent The boss id into a array like this: ["id" => 123]'); }
+
+        if(!is_int($parameters['id']))
+        { throw new \Exception('The boss id needs to be a interger value. Please try again with a interger number.'); }
+    }
 
     function __construct(WowConnection $obj_wow_connection)
     {
@@ -22,14 +28,26 @@ class Boss extends \Blizzard\Api\Wow implements iBoss
 
     public function getAll()
     {
-        $this->obj_connection->sendRequest();
-        return $this->obj_connection->getResponse();
+        try
+        {
+            $this->obj_connection->sendRequest();
+            $response = $this->obj_connection->getResponse();
+        }
+        catch(\Exception $e) { exit($e->getMessage()); }
+
+        return $response;
     }
 
-    public function getBoss($boss_id)
+    public function getBoss($parameters = array())
     {
-        $this->obj_connection->setKindUri(self::$request . $boss_id);
-        $this->obj_connection->sendRequest();
-        return $this->obj_connection->getResponse();
+        try
+        {
+            $this->parametersValidation((!is_array($parameters)) ? array() : $parameters);
+            $this->obj_connection->setKindUri(self::$request . $parameters['id']);
+            $this->obj_connection->sendRequest();
+            $response = $this->obj_connection->getResponse();
+        }catch(\Exception $e) { exit($e->getMessage()); }
+
+        return $response;
     }
 }
