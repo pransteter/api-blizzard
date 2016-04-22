@@ -9,18 +9,9 @@ class Main extends \Blizzard\Controller\Controller
 
     public function mainAction()
     {
+        exit('Estudos com a API da Blizzard.');
+
         //$parametros = $this->getUrlParameters();
-
-        $model_bossapi = $this->getModel('wow' , 'bossapi');
-        $bosses = $model_bossapi->getAll();
-
-        $boss = $model_bossapi->getBoss(41376);
-
-        echo '<pre>';
-        print_r($boss);
-        echo '<hr>';
-        print_r($bosses);
-        exit;
 
         // mandar o model Boss salvar todos os Bosses no banco.
         
