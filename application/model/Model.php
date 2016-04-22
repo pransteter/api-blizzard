@@ -27,7 +27,7 @@ class Model
             $pdo_object = new \PDO($this->getPDOConfiguration(), self::$configuration['user'], self::$configuration['password']);
             $this->mapper = new \Respect\Relational\Mapper($pdo_object);
         }
-        catch(\Exception $e) { throw new \Exception('N„o foi possÌvel realizar a conex„o com o banco de dados. Verifique as configuraÁıes do banco.'); }
+        catch(\Exception $e) { throw new \Exception('N√£o foi poss√≠vel realizar a conex√£o com o banco de dados. Verifique as configura√ß√µes do banco.'); }
     }
 
     private function getPDOConfiguration()
@@ -39,16 +39,16 @@ class Model
     private function configurationValidation($info)
     {
         if(!isset($info['database']) || empty($info['database']) || !is_string($info['database']))
-        { throw new \Exception('O nome do banco n„o foi configurado corretamente. Verifique a configuraÁ„o presente no arquivo "/database_config.php"'); }
+        { throw new \Exception('O nome do banco n√£o foi configurado corretamente. Verifique a configura√ß√£o presente no arquivo "/database_config.php"'); }
 
         if(!isset($info['address']) || empty($info['address']) || !is_string($info['address']))
-        { throw new \Exception('O endereÁo do banco n„o foi configurado corretamente. Verifique a configuraÁ„o presente no arquivo "/database_config.php"'); }
+        { throw new \Exception('O endere√ßo do banco n√£o foi configurado corretamente. Verifique a configura√ß√£o presente no arquivo "/database_config.php"'); }
 
         if(!isset($info['user']) || empty($info['user']) || !is_string($info['user']))
-        { throw new \Exception('O usu·rio do banco n„o foi configurado corretamente. Verifique a configuraÁ„o presente no arquivo "/database_config.php"'); }
+        { throw new \Exception('O usu√°rio do banco n√£o foi configurado corretamente. Verifique a configura√ß√£o presente no arquivo "/database_config.php"'); }
 
         if(!isset($info['password']))
-        { throw new \Exception('A senha do banco n„o foi configurada corretamente. Verifique a configuraÁ„o presente no arquivo "/database_config.php"'); }
+        { throw new \Exception('A senha do banco n√£o foi configurada corretamente. Verifique a configura√ß√£o presente no arquivo "/database_config.php"'); }
     }
 
 }

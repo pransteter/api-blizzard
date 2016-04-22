@@ -14,7 +14,6 @@ class Boss extends \Blizzard\Controller\Controller
         if(isset($parametros[0]) && $parametros[0] == 'update_database')
         { $this->updateBosses(); }
 
-
         $model_bossapi = $this->getModel('wow' , 'bossapi');
         $boss = $model_bossapi->getBoss(41376);
 

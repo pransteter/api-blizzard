@@ -15,7 +15,7 @@ abstract class Connection
 
     private static $base_parameters =
         [
-            'apikey' => 'utkjwu9vx72u4nxavjpj5eq2sarbgt75',
+            'apikey' => '',
             'locale' => 'en_US'
         ];
     private static $connection = false;

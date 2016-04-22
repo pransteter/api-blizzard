@@ -15,20 +15,13 @@ class Boss extends \Blizzard\Model\Model
 
         foreach($bosses as $boss)
         {
-            if(isset($boss->npcs)) { unset($boss->npcs); } // Precisamos estudar como salvar npcs se necessário.
-            if(isset($boss->location)) { unset($boss->location); } // Precisamos estudar como salvar npcs se necessário.
-
-            if(isset($boss->id))
-            {
-                $boss->boss_id = $boss->id;
-                unset($boss->id);
-            }
+            $this->processBoss($boss);
 
             try
             {
                 if(!$this->haveBossBd($boss->boss_id))
                 {
-                    $this->saveNewBoss($boss);
+                    $this->mapper->boss->persist($boss);
                     continue;
                 }
 
@@ -37,31 +30,45 @@ class Boss extends \Blizzard\Model\Model
             catch(\Exception $e) { continue; } // Depois criar um armazenador pra informar quais não foram gravados.
         }
 
+        $this->mapper->flush();
+
         return true;
     }
 
     private function haveBossBd($boss_id)
     {
-        if(!is_int($boss_id)) { throw new Exception('ID não é um número inteiro.'); }
-
-        if(!$this->mapper->boss(array('boss_id' => $boss_id))->fetch()) { return false; }
+        if(!$this->mapper->boss(['boss_id' => $boss_id])->fetch()) { return false; }
 
         return true;
     }
 
-    private function saveNewBoss($boss)
-    {
-        $this->mapper->boss->persist($boss);
-        $this->mapper->flush();
-    }
-
     private function editBoss($boss)
     {
-        $retorno = Sql::update('boss')
-                        ->set((array)$boss)
-                        ->where(array('boss_id' => $boss->boss_id));
+        $boss_bd = $this->mapper->boss(['boss_id' => $boss->boss_id])->fetch();
 
-        echo "<pre>"; print_r($retorno); exit;
+        foreach($boss as $attribute => $value) { $boss_bd->$attribute = $value; }
+
+        $this->mapper->boss->persist($boss_bd);
+    }
+
+    private function processBoss($boss)
+    {
+        if(!($boss instanceof \stdClass)) { throw new \Exception('Boss não é um objeto do tipo stdClass.'); }
+
+        $bd_fields = ['name' , 'urlSlug' , 'description' , 'zoneId', 'availableInNormalMode' ,
+                        'availableInHeroicMode' , 'health' , 'heroicHealth' , 'level' , 'heroicLevel' , 'journalId'];
+
+        foreach($boss as $attribute => $value)
+        {
+            if((string)$attribute === 'id') { $boss_id = $boss->id; }
+            if(!in_array($attribute , $bd_fields)) { unset($boss->$attribute); }
+        }
+
+        if(!isset($boss_id)) { throw new \Exception('Não foi informado o ID do Boss pela API'); }
+
+        if(!is_int($boss_id)) { throw new \Exception('ID não é um número inteiro.'); }
+
+        $boss->boss_id = $boss_id;
     }
 
 }
