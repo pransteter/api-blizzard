@@ -1,6 +1,6 @@
 <?php
 
-$permited_urls = array('/' , '/boss');
+$permited_urls = array('/' , '/boss' , '/pet');
 
 $routes =
     array(
@@ -13,6 +13,12 @@ $routes =
         '/boss' => array(
             'module' => 'wow' ,
             'controller' => 'boss' ,
+            'action' => 'main' ,
+            'parameters_limit' => 1
+        ),
+        '/pet' => array(
+            'module' => 'wow' ,
+            'controller' => 'pet' ,
             'action' => 'main' ,
             'parameters_limit' => 1
         )

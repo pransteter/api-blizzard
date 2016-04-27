@@ -40,6 +40,4 @@ class Boss extends \Blizzard\Controller\Controller
         exit('Chefões atualizados com sucesso em banco de dados.');
     }
 
-
-
 }
