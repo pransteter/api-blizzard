@@ -11,5 +11,5 @@ abstract class Wow
         $this->obj_connection = $obj_wow_connection;
     }
 
-    abstract protected function parametersValidation(Array $parameters);
+    abstract protected function parametersValidation(Array $parameters , $rotine);
 }
